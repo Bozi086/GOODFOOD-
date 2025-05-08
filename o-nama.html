@@ -145,6 +145,66 @@
             opacity: 0.8;
         }
 
+        /* Stilovi za O nama sekciju */
+        .about-section {
+            padding: 60px 0;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f28c38;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        .team-section {
+            margin-top: 40px;
+        }
+        .team-section h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #f28c38;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .team-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .team-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .team-card p {
+            font-size: 1rem;
+            color: #e63946;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
         /* Responsive prilagođavanja za mobilne i tablet uređaje */
         @media (max-width: 991px) {
             .navbar-nav {
@@ -162,6 +222,18 @@
         }
 
         @media (max-width: 767px) {
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            .about-section p {
+                font-size: 1rem;
+            }
+            .team-section h3 {
+                font-size: 1.8rem;
+            }
+            .team-card {
+                margin-bottom: 20px;
+            }
             .footer .container {
                 padding-left: 0;
                 padding-right: 0;
@@ -218,6 +290,28 @@
             .navbar-brand span {
                 font-size: 1.1rem;
                 letter-spacing: 1px;
+            }
+            .about-section {
+                padding: 40px 0;
+            }
+            .about-section h2 {
+                font-size: 1.8rem;
+            }
+            .about-section p {
+                font-size: 0.95rem;
+            }
+            .team-section h3 {
+                font-size: 1.5rem;
+            }
+            .team-card img {
+                width: 120px;
+                height: 120px;
+            }
+            .team-card h4 {
+                font-size: 1.3rem;
+            }
+            .team-card p {
+                font-size: 0.9rem;
             }
             .footer {
                 padding: 20px 0;
@@ -284,7 +378,31 @@
 
     <!-- Sadržaj stranice -->
     <main class="container my-5">
-        <!-- Ovdje dodajte sadržaj vaših stranica -->
+        <section class="about-section">
+            <h2>O nama</h2>
+            <p>Osnovani 2013. godine u srcu Crne Gore, u mjestu Kosić bb, Danilovgrad, GOOD FOOD DOO je kompanija posvećena kvalitetu i inovacijama. Prema podacima iz Centralnog registra privrednih subjekata (CRPS), naša osnovna djelatnost je nespecijalizovana trgovina na veliko (4690), dok je naša glavna misija proizvodnja vrhunskih jaja, uz dodatni fokus na građevinski sektor kao sporednu djelatnost.</p>
+            <p>Pod vođstvom osnivača Predraga Kovačevića i direktorice Marije Kaluđerović, GOOD FOOD DOO gradi reputaciju na temeljima kvaliteta, pouzdanosti i posvećenosti. Naša vizija je jednostavna: nudimo samo najbolje, uz stalni fokus na unapređenje kvaliteta naših proizvoda i usluga.</p>
+            <p>Sa strašću za izvrsnošću, GOOD FOOD DOO nastavlja da raste, širi svoje poslovanje i doprinosi zajednici, zadržavajući visoke standarde koji nas izdvajaju. Pridružite nam se na putu ka još većim uspjesima!</p>
+        </section>
+        <section class="team-section">
+            <h3>Naš tim</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="team-card">
+                        <img src="placeholder.jpg" alt="Predrag Kovačević">
+                        <h4>Predrag Kovačević</h4>
+                        <p>Osnivač</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="team-card">
+                        <img src="placeholder.jpg" alt="Marija Kaluđerović">
+                        <h4>Marija Kaluđerović</h4>
+                        <p>Direktorica</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Futer -->
