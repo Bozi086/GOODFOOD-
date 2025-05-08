@@ -101,6 +101,109 @@
             top: 21px;
         }
 
+
+/* Hero sekcija */
+.hero-section {
+    padding: 0 0 40px 0; /* Bez gornjeg paddinga, samo donji za razmak ispod */
+    margin-top: 0; /* Osigurava da nema gornje margine */
+    text-align: center;
+    background-color: #fff; /* Bela pozadina kao na slici */
+}
+
+.hero-content {
+    max-width: 800px; /* Smanjena širina da odgovara slici */
+    margin: 0 auto;
+    padding: 20px 15px; /* Unutrašnji padding za sadržaj */
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f28c38; /* Boja navigacionog bara za naslov */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Senka za čitljivost */
+    margin-bottom: 20px;
+    padding-top: 20px; /* Mali gornji padding za naslov */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px; /* Veći radijus zaobljenih uglova kao na slici */
+    overflow: hidden; /* Osigurava da slika ne prelazi zaobljene uglove */
+}
+
+.header-image {
+    width: 100%; /* Prilagođava se širini kontejnera (max 800px) */
+    max-width: 1000px; /* Maksimalna širina slike kao na slici */
+    height: auto; /* Zadržava proporcije */
+    object-fit: cover; /* Sprečava izobličenje slike */
+    border-radius: 20px; /* Zaobljeni uglovi */
+}
+
+.hero-btn {
+    background-color: #e63946; /* Crvena boja iz GoodFood palete */
+    color: #ffffff;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.hero-btn:hover {
+    background-color: #d32f3a; /* Tamnija crvena za hover */
+    transform: translateY(-2px);
+}
+
+.hero-btn:active {
+    transform: translateY(0);
+}
+
+/* Responzivna prilagođavanja za hero sekciju */
+@media (max-width: 767px) {
+    .hero-section {
+        padding: 0 0 30px 0; /* Smanjen donji padding */
+    }
+    .hero-title {
+        font-size: 2rem;
+        padding-top: 15px;
+    }
+    .hero-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    .hero-content {
+        padding: 15px 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 0 0 20px 0;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        padding-top: 10px;
+    }
+    .hero-btn {
+        padding: 8px 20px;
+        font-size: 0.95rem;
+        margin-top: 15px;
+    }
+    .image-container {
+        border-radius: 15px; /* Smanjen radijus za manje ekrane */
+    }
+    .header-image {
+        border-radius: 15px;
+    }
+}
+
         /* Prilagođavanje futera */
         .footer {
             background-color: #e63946;
@@ -283,8 +386,25 @@
     </nav>
 
     <!-- Sadržaj stranice -->
-    <main class="container my-5">
-        <!-- Ovdje dodajte sadržaj vaših stranica -->
+
+
+<!-- Ostatak sadržaja unutar kontejnera -->
+<
+    
+        <!-- Sadržaj stranice -->
+<main>
+    <!-- Hero sekcija -->
+    <section class="hero-section">
+        <div class="hero-content text-center">
+            <h1 class="hero-title">Dobrodošli u GoodFood!</h1>
+            <div class="image-container">
+                <img src="jaja4.jpg" alt="GoodFood Hero Image" class="header-image">
+            </div>
+            <a href="kontakti.html" class="btn hero-btn">Kontaktirajte nas</a>
+        </div>
+    </section>
+</main>
+    
     </main>
 
     <!-- Futer -->
