@@ -34,6 +34,9 @@
         .navbar {
             background-color: #f28c38;
             transition: transform 0.3s ease;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .navbar.hidden {
             transform: translateY(-100%);
@@ -165,6 +168,29 @@
             transform: translateY(0);
         }
 
+        /* About section styling */
+        .about-section {
+            padding: 40px 0;
+            background-color: #fff;
+            text-align: center;
+        }
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f28c38;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            padding: 0 15px;
+        }
+
         /* Language switcher styles */
         .language-switcher {
             display: flex;
@@ -193,7 +219,7 @@
             opacity: 1;
         }
 
-        /* Responzivna prilagođavanja za hero sekciju */
+        /* Responzivna prilagođavanja za hero i about sekciju */
         @media (max-width: 767px) {
             .hero-section {
                 padding: 0 0 30px 0;
@@ -209,6 +235,16 @@
                 font-size: 1rem;
             }
             .hero-content {
+                padding: 0 10px;
+            }
+            .about-section {
+                padding: 30px 0;
+            }
+            .about-section h2 {
+                font-size: 2rem;
+            }
+            .about-section p {
+                font-size: 1rem;
                 padding: 0 10px;
             }
             .language-switcher {
@@ -238,6 +274,16 @@
             }
             .header-image {
                 border-radius: 15px;
+            }
+            .about-section {
+                padding: 20px 0;
+            }
+            .about-section h2 {
+                font-size: 1.8rem;
+            }
+            .about-section p {
+                font-size: 0.95rem;
+                padding: 0 10px;
             }
             .language-switcher {
                 top: 65px;
@@ -447,6 +493,14 @@
                 <a href="kontakti.html" class="btn hero-btn" data-sr="Kontaktirajte nas" data-en="Contact Us">Kontaktirajte nas</a>
             </div>
         </section>
+
+        <!-- About sekcija -->
+        <section class="about-section">
+            <h2 data-sr="O nama" data-en="About Us">O nama</h2>
+            <p data-sr="Osnovani 2013. godine u srcu Crne Gore, u mjestu Kosić bb, Danilovgrad, GOOD FOOD DOO je kompanija posvećena kvalitetu i inovacijama. Prema podacima iz Centralnog registra privrednih subjekata (CRPS), naša osnovna djelatnost je nespecijalizovana trgovina na veliko (4690), dok je naša glavna misija proizvodnja vrhunskih jaja, uz dodatni fokus na građevinski sektor kao sporednu djelatnost." data-en="Founded in 2013 in the heart of Montenegro, in Kosić bb, Danilovgrad, GOOD FOOD DOO is a company dedicated to quality and innovation. According to the Central Registry of Business Entities (CRPS), our primary activity is non-specialized wholesale trade (4690), while our main mission is the production of high-quality eggs, with an additional focus on the construction sector as a secondary activity.">Osnovani 2013. godine u srcu Crne Gore, u mjestu Kosić bb, Danilovgrad, GOOD FOOD DOO je kompanija posvećena kvalitetu i inovacijama. Prema podacima iz Centralnog registra privrednih subjekata (CRPS), naša osnovna djelatnost je nespecijalizovana trgovina na veliko (4690), dok je naša glavna misija proizvodnja vrhunskih jaja, uz dodatni fokus na građevinski sektor kao sporednu djelatnost.</p>
+            <p data-sr="Pod vođstvom osnivača Predraga Kovačevića i direktorice Marije Kaluđerović, GOOD FOOD DOO gradi reputaciju na temeljima kvaliteta, pouzdanosti i posvećenosti. Naša vizija je jednostavna: nudimo samo najbolje, uz stalni fokus na unapređenje kvaliteta naših proizvoda i usluga." data-en="Led by founder Predrag Kovačević and director Marija Kaluđerović, GOOD FOOD DOO builds its reputation on the foundations of quality, reliability, and dedication. Our vision is simple: we offer only the best, with a constant focus on improving the quality of our products and services.">Pod vođstvom osnivača Predraga Kovačevića i direktorice Marije Kaluđerović, GOOD FOOD DOO gradi reputaciju na temeljima kvaliteta, pouzdanosti i posvećenosti. Naša vizija je jednostavna: nudimo samo najbolje, uz stalni fokus na unapređenje kvaliteta naših proizvoda i usluga.</p>
+            <p data-sr="Sa strašću za izvrsnošću, GOOD FOOD DOO nastavlja da raste, širi svoje poslovanje i doprinosi zajednici, zadržavajući visoke standarde koji nas izdvajaju. Pridružite nam se na putu ka još većim uspjesima!" data-en="With a passion for excellence, GOOD FOOD DOO continues to grow, expand its operations, and contribute to the community, maintaining the high standards that set us apart. Join us on the path to even greater success!">Sa strašću za izvrsnošću, GOOD FOOD DOO nastavlja da raste, širi svoje poslovanje i doprinosi zajednici, zadržavajući visoke standarde koji nas izdvajaju. Pridružite nam se na putu ka još većim uspjesima!</p>
+        </section>
     </main>
 
     <!-- Futer -->
@@ -496,23 +550,35 @@
         // Navbar scroll behavior
         let lastScrollTop = 0;
         const navbar = document.querySelector('.navbar');
-        const navbarBrand = document.querySelector('.navbar-brand');
 
-        navbarBrand.addEventListener('click', function(event) {
-            console.log('Logo clicked! Redirecting to /index.html');
-        });
-
-        window.addEventListener('scroll', function() {
+        // Funkcija za debagovanje
+        function handleScroll() {
             let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (currentScrollTop > lastScrollTop) {
+            // Dodaj prag od 50 piksela za detekciju skrolovanja
+            if (currentScrollTop > lastScrollTop && currentScrollTop > 50) {
                 navbar.classList.add('hidden');
-            } else {
+                console.log('Sakrivam navbar, scrollTop:', currentScrollTop);
+            } else if (currentScrollTop < lastScrollTop) {
                 navbar.classList.remove('hidden');
+                console.log('Prikazujem navbar, scrollTop:', currentScrollTop);
             }
 
             lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+        }
+
+        // Dodaj debagovanje za proveru inicijalizacije
+        window.addEventListener('scroll', function() {
+            console.log('Skrolovanje detektovano, scrollTop:', window.pageYOffset);
+            handleScroll();
         });
+
+        // Provera da li je navbar pronađen
+        if (!navbar) {
+            console.error('Navbar nije pronađen u DOM-u!');
+        } else {
+            console.log('Navbar pronađen, inicijalizacija skripte uspešna.');
+        }
 
         // Language switcher
         document.addEventListener('DOMContentLoaded', () => {
@@ -532,7 +598,7 @@
                 });
 
                 ariaElements.forEach(element => {
-                    element.setAttribute('aria-label', lang === 'en' ? element.getAttribute('data-en-aria-label') : element.getAttribute('data-sr-aria-label'));
+                    element.setAttribute('aria-label', lang === 'en' ? element.getAttribute('data-en-aria-label') : element.getAttribute('data-sr-aria-label');
                 });
 
                 document.documentElement.lang = lang;
